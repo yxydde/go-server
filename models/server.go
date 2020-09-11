@@ -1,6 +1,9 @@
 package models
 
-import "os"
+import (
+	"os"
+	"time"
+)
 
 var server Server
 
@@ -14,13 +17,14 @@ func init() {
 	if version == "" {
 		version = "V1.0"
 	}
-	server = Server{hostName, version}
+	server = Server{hostName, version, time.Now().Format("2006-01-02 15:04:05")}
 
 }
 
 type Server struct {
 	HostName string
 	Version  string
+	NowTime  string
 }
 
 func GetServer() (s *Server) {
