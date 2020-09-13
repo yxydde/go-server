@@ -25,6 +25,8 @@ COPY --from=build /go/src/github.com/yxydde/go-server/go-server /app
 
 COPY --from=build /go/src/github.com/yxydde/go-server/conf /app/conf
 
+ENV Version=v2.0
+
 expose 8080
 
 CMD ["/app/go-server"]
